@@ -23,4 +23,5 @@ function testDate(j,m,a){
         }
         return test;
     }
+    return false;
 }
