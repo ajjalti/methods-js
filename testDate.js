@@ -1,3 +1,4 @@
+// fonction pour valider la date:
 function testDate(j,m,a){
     if(j>=1 && j<=31 && m>=1 && m<=12 && a>=1){
         let m1 = [1,3,5,7,8,10,12];
@@ -26,7 +27,7 @@ function testDate(j,m,a){
     return false;
 }
 
-// other function 
+// fonction pour tester le format de la date  
 function testStructureDate(date){
     var char = "/,;:?-_&@# \\+=";
     var s;
@@ -34,6 +35,9 @@ function testStructureDate(date){
         for (let j of char){
             if(i==j){
                 s=date.split(i);
+                if(s.length>3){
+                  return 0;
+                }
             }
         }
     }
@@ -44,8 +48,18 @@ function testStructureDate(date){
           }
       }
       if(res==true){
+        if(!isNaN(s[0]) && !isNaN(s[1]) && !isNaN(s[2])){
         return testDate(parseInt(s[0]),parseInt(s[1]),parseInt(s[2]));
+          }return false;
       }
+}
+//test
+var chaine = "1-3-2004-12";
+var test = testStructureDate(chaine);
+if (test==true){
+  console.log("la date est valid ");
+}else if(test==false){
+  console.log("la date n'est pas valid !");
 }
 
 
