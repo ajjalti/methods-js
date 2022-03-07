@@ -6,3 +6,5 @@ function testEmail(email){
       console.log("email not valid");
     }
   }
+  const email = "ahmedgmail.lkmm";
+testEmail(email);
